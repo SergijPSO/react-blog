@@ -1,43 +1,19 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import IndexPage from "./ pages/IndexPage";
+import LoginPage from "../src/ pages/LoginPage";
+import RegisterPage from "../src/ pages/RegisterPage";
 
 function App() {
   return (
-    <main>
-      <header>
-        <a href='#' className='logo'>
-          BlogLogo
-        </a>
-        <nav className='navigation'>
-          <a href='#' className='login'>
-            Login
-          </a>
-          <a href='#' className='register'>
-            Register
-          </a>
-        </nav>
-      </header>
-      <div className='post'>
-        <div className='image'>
-          <img
-            className='post-image'
-            src='../assets/images/cat1.jpg'
-            alt='cat'
-          />
-        </div>
-        <div className='post-texts'>
-          <h2 className='post-title'>Post title</h2>
-          <p className='info'>
-            <a className='author'> David Pazko</a>
-            <time>23-01-06 16:45</time>
-          </p>
-          <p className='summary'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
-            incidunt commodi tenetur sed odio minus dicta aliquid laborum eos ab
-            beatae quo! Optio esse impedit vero assumenda earum doloribus quod?
-          </p>
-        </div>
-      </div>
-    </main>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<IndexPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+      </Route>
+    </Routes>
   );
 }
 
