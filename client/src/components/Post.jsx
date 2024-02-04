@@ -1,22 +1,30 @@
 import React from "react";
+import { formatISO9075 } from "date-fns";
 
-export default function Post() {
+export default function Post({
+  title,
+  summary,
+  cover,
+  content,
+  createdAt,
+  author,
+}) {
   return (
     <div className='post'>
       <div className='image'>
-        <img className='post-image' src='../assets/images/cat1.jpg' alt='cat' />
+        <img
+          className='post-image'
+          src={"http://localhost:4000/" + cover}
+          alt='cat'
+        />
       </div>
       <div className='post-texts'>
-        <h2 className='post-title'>Post title</h2>
+        <h2 className='post-title'>{title}</h2>
         <p className='info'>
-          <a className='author'> David Pazko</a>
-          <time>23-01-06 16:45</time>
+          <a className='author'>{author.username}</a>
+          <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
-        <p className='summary'>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem,
-          incidunt commodi tenetur sed odio minus dicta aliquid laborum eos ab
-          beatae quo! Optio esse impedit vero assumenda earum doloribus quod?
-        </p>
+        <p className='summary'>{summary}</p>
       </div>
     </div>
   );
