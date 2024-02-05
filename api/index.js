@@ -107,4 +107,17 @@ app.get("/post", async (req, res) => {
   );
 });
 
+app.get("/post/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const postDoc = await Post.findById(id).populate("author", ["username"]);
+    if (!postDoc) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+    res.json(postDoc);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 app.listen(4000);

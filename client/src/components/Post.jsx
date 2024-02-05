@@ -1,5 +1,6 @@
 import React from "react";
 import { formatISO9075 } from "date-fns";
+import { Link } from "react-router-dom";
 
 export default function Post({
   title,
@@ -8,18 +9,23 @@ export default function Post({
   content,
   createdAt,
   author,
+  _id,
 }) {
   return (
     <div className='post'>
       <div className='image'>
-        <img
-          className='post-image'
-          src={"http://localhost:4000/" + cover}
-          alt='cat'
-        />
+        <Link to={`/post/${_id}`}>
+          <img
+            className='post-image'
+            src={"http://localhost:4000/" + cover}
+            alt='Post image cover'
+          />
+        </Link>
       </div>
       <div className='post-texts'>
-        <h2 className='post-title'>{title}</h2>
+        <Link to={`/post/${_id}`}>
+          <h2 className='post-title'>{title}</h2>
+        </Link>
         <p className='info'>
           <a className='author'>{author.username}</a>
           <time>{formatISO9075(new Date(createdAt))}</time>

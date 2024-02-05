@@ -124,3 +124,24 @@ input {
 .form-register_title {
   margin-bottom: 16px;
 }
+
+.post-image img {
+  width: 100%;
+}
+
+.post-page {
+  text-align: center;
+}
+.post-time {
+  text-align: center;
+  margin: 10px 0 5px;
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+.post-author {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
